@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Planmate</title>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left"></div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <a href="Routine Influencer.html" class="home-btn">🏠 Home</a>
+
+        <h1>Work Schedule</h1>
+
+        <div class="tips">
+            <h3>Productivity Tips</h3>
+            <ul>
+                <li>Prioritize tasks – Do important things first</li>
+                <li>Break tasks into smaller steps</li>
+                <li>Delegate when possible</li>
+                <li>Limit multitasking</li>
+                <li>Set time limits</li>
+                <li>Say no to unnecessary tasks</li>
+            </ul>
+        </div>
+
+        <div class="tips">
+            <h3>How to Use</h3>
+            <ul>
+                <li>List your tasks</li>
+                <li>Set time limits(eg:From 09.00 AM to 09:30 AM)</li>
+                <li>Enter start and end time</li>
+                <li>Click "Completed" to remove task</li>
+            </ul>
+        </div>
+
+        <h2 style="text-align:center;">Task Scheduler</h2>
+
+        <button class="add-btn" onclick="addRow()">+ Add Task</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="taskTable"></tbody>
+        </table>
+
+    </div>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6ff;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* LEFT IMAGE */
+        .left {
+            width: 30%;
+             background:url('work.gif') no-repeat center;
+            background-size: contain;
+            background-color: #dde3ff;
+        }
+        /* RIGHT CONTENT */
+        .right {
+            width: 70%;
+            padding: 20px;
+            overflow-y: scroll;
+        }
+
+        .home-btn {
+            float: right;
+            text-decoration: none;
+            background-color: #4a6cf7;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .tips {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        ul li {
+            margin: 8px 0;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e0e7ff;
+        }
+
+        input {
+            width: 90%;
+            padding: 5px;
+        }
+
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .add-btn {
+            display: block;
+            margin: 15px auto;
+            background-color: #4a6cf7;
+            color: white;
+        }
+
+        .complete-btn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .complete-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<script>
+    function addRow() {
+        const table = document.getElementById("taskTable");
+
+        const row = table.insertRow();
+
+        row.innerHTML = `
+            <td><input type="text" placeholder="Enter task"></td>
+            <td><input type="time"></td>
+            <td><input type="time"></td>
+            <td>
+                <button class="complete-btn" onclick="deleteRow(this)">
+                    Completed
+                </button>
+            </td>
+        `;
+    }
+
+    function deleteRow(btn) {
+        const row = btn.parentNode.parentNode;
+        row.remove();
+    }
+const checkboxes = document.querySelectorAll("#taskList input");
+
+</script>
+
+</body>
+</html>
