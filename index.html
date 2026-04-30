@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Routine Influencer</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #ffe6f0;
+      }
+
+      .container {
+        display: flex;
+        height: 100vh;
+      }
+
+      /* LEFT SIDE (HIDDEN INITIALLY) */
+      .sidebar {
+        width: 50%;
+        background-color: #ff66a3;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        display: none; /* Hidden by default */
+      }
+
+      .sidebar img {
+        width: 80px;
+        margin-bottom: 10px;
+      }
+      .menu a {
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #ff3385;
+        border-radius: 10px;
+      }
+      .menu button {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #cc0066;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      /* RIGHT SIDE */
+      .content {
+        width: 100%; /* Full width when sidebar hidden */
+        padding: 30px;
+        text-align: center;
+        transition: width 0.3s;
+      }
+
+      .content img {
+        width: 100px;
+      }
+
+      .content h1 {
+        color: #cc0066;
+      }
+
+      .Login-btn {
+        padding: 12px 25px;
+        background-color: #ff3385;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 16px;
+      }
+
+      .Login-btn:hover {
+        background-color: #cc0066;
+      }
+
+      .quote {
+        background-color: #fff0f5;
+        padding: 10px;
+        border-left: 5px solid #ff3385;
+        margin: 20px 0;
+        font-style: italic;
+      }
+
+      .section {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- LEFT PANEL -->
+      <div class="sidebar" id="sidebar">
+        <h1>Dashboard</h1>
+
+        <div class="menu">
+          <a href="healthy page.html">Healthy Routine</a>
+          <a href="PlanMate.html">PlanMate</a>
+          <a href="Med Scheduler.html">Med Time</a>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="content" id="content">
+        <img src="logoo.png" alt="logo" />
+        <h1>Routine Influencer</h1>
+
+        <button class="Login-btn" id="loginBtn" onclick="goToLogin()">Login</button>
+        <p>Routine Influencer helps you organize daily tasks easily and efficiently.</p>
+
+        <p>Built using HTML, CSS, and JavaScript as a beginner-friendly project.</p>
+ <p>Complete your login to get into Dashboard!!</p>
+
+
+
+        <div class="quote">"From to-do to ta-da! Keep going!"</div>
+
+        <div class="section">
+          <h3>Healthy Routine</h3>
+          <p>Health is wealth! Build a strong lifestyle.</p>
+        </div>
+
+        <div class="section">
+          <h3>PlanMate</h3>
+          <p>Plan your tasks smartly and reduce stress.</p>
+        </div>
+
+        <div class="section">
+          <h3>Med Time</h3>
+          <p>Never miss your medication.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function() {
+        // Check if user is logged in
+        if (localStorage.getItem("loggedIn") === "true") {
+          document.getElementById("sidebar").style.display = "block";
+          document.getElementById("content").style.width = "75%";
+          document.getElementById("loginBtn").style.display = "none";
+        }
+      }
+
+      function goToLogin() {
+        window.location.href = "Login.html";
+      }
+
+      function logout() {
+        localStorage.removeItem("loggedIn");
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>
